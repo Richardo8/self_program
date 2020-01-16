@@ -9,6 +9,7 @@ function generator(name, arr, needDepend){
 
 
     return {
+        mode: 'production',
         entry: {
             [name]: arr,
         },
@@ -18,12 +19,6 @@ function generator(name, arr, needDepend){
             libraryTarget: 'var',
             library: '_dll_[name]_[hash]'
         },
-        // optimization: {
-        //     splitChunks: {
-        //         chunks: 'all',
-        //         name: 'split'
-        //     }
-        // },
         plugins: [
             new Webpack.DllPlugin({
                 path: paths.vendorSrc + '/[name].manifest.json',

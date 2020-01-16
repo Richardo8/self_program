@@ -2,12 +2,19 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { add, multiply } from 'components/add'
+import { Apple, Person } from 'components/components'
 import isArray from 'lodash/isArray'
-import { Modal, PageHeader } from 'antd'
+import { Button } from 'antd'
+
+const appleModel = new Apple({
+  model: 'IphoneX'
+})
+
+console.log(appleModel.getModel())
 
 function App() {
     console.log(add(1,2))
-    console.log(isArray([1]))
+    // console.log(isArray([1]))
     console.log(multiply(1,3))
   return (
 
@@ -25,9 +32,7 @@ function App() {
         >
           Learn React
         </a>
-    {/*<Button>test</Button>*/}
-    <Modal>test</Modal>
-        <PageHeader>2</PageHeader>
+          <Button>test</Button>
 
     </header>
     </div>
