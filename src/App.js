@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { add, multiply } from 'components/add'
+// import { add, multiply } from 'components/add'
 import { Apple, Person } from 'components/components'
 import isArray from 'lodash/isArray'
 import { Button } from 'antd'
@@ -13,9 +13,14 @@ const appleModel = new Apple({
 console.log(appleModel.getModel())
 
 function App() {
+  async function handleClick(){
+    const {add, multiply} = await import(/*webpackChunkName: "add" */ 'components/add')
     console.log(add(1,2))
     // console.log(isArray([1]))
     console.log(multiply(1,3))
+  }
+
+
   return (
 
     <div className="App">
@@ -32,7 +37,7 @@ function App() {
         >
           Learn React
         </a>
-          <Button>test</Button>
+          <Button onClick={handleClick}>test</Button>
 
     </header>
     </div>
